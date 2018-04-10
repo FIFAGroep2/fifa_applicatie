@@ -11,6 +11,6 @@ teams, pools en spelers toe konden voegen in de web-applicatie en in de C# appli
 
 Dit project is gemaakt door:
 - Mees Maske
-- Abdulla Dönmer
+- Abdulla Dönmez
 - Ahmad Khaled
 - Kevin Musters
