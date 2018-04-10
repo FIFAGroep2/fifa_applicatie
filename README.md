@@ -1,4 +1,4 @@
-# Project Fifa Groep 1
+# Project Fifa Groep 2
 
 Deze repository is gemaakt in opdracht van `Radius College`. Dit is het C# deel van het project!
 
