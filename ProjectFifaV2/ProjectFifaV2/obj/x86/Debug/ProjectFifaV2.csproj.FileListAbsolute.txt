@@ -24,3 +24,35 @@ C:\Users\Bart Roos\Dropbox\Radius\_Project FIFA\ProjectFifaV2\ProjectFifaV2\obj\
 C:\Users\Bart Roos\Dropbox\Radius\_Project FIFA\ProjectFifaV2\ProjectFifaV2\bin\Debug\db.mdf
 C:\Users\Bart Roos\Dropbox\Radius\_Project FIFA\ProjectFifaV2\ProjectFifaV2\bin\Debug\db_log.ldf
 C:\Users\Bart Roos\Dropbox\Radius\_Project FIFA\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\db.mdf
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\db_log.ldf
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\ProjectFifaV2.pdb
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csprojResolveAssemblyReference.cache
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmAdmin.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmLogin.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmPlayer.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmRanking.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.Properties.Resources.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.GenerateResource.Cache
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.CoreCompileInputs.cache
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.exe
+C:\Users\abdul\Desktop\ProjectFifaV2\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.pdb
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\db.mdf
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\db_log.ldf
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe.config
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\ProjectFifaV2.exe
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\ProjectFifaV2.pdb
+C:\Users\abdul\Desktop\ProjectFifaV2\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csprojResolveAssemblyReference.cache
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmAdmin.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmLogin.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmPlayer.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.frmRanking.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.Properties.Resources.resources
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.GenerateResource.Cache
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.csproj.CoreCompileInputs.cache
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.exe
+C:\Users\abdul\Desktop\ProjectFifaV2\obj\x86\Debug\ProjectFifaV2.pdb

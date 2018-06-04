@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ProjectFifaV2
 {
@@ -65,12 +66,75 @@ namespace ProjectFifaV2
             }
         }
 
+        //Gets data from Csv file
+        private DataTable GetDataFromCsv()
+        {
+            DataTable importedData = new DataTable();
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(txtPath.Text))
+                {
+                    string header = sr.ReadLine();
+                    if (string.IsNullOrEmpty(header))
+                    {
+                        MessageBox.Show("No file data");
+                        return null;
+                    }
+
+                    string[] headerColumns = header.Split(',');
+                    foreach (string headerColumn in headerColumns)
+                    {
+                        importedData.Columns.Add(headerColumn);
+                    }
+
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        if (string.IsNullOrEmpty(line)) continue;
+
+                        string[] fields = line.Split(',');
+                        DataRow importedRow = importedData.NewRow();
+
+                        for (int i = 0; i < fields.Count(); i++)
+                        {
+                            importedRow[i] = fields[i];
+                        }
+
+                        importedData.Rows.Add(importedRow);
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+
+            return importedData;
+
+        }
+
+        
         private void btnLoadData_Click(object sender, EventArgs e)
         {
+            //Show wait cursor
+            Cursor = Cursors.WaitCursor;
             if (!(txtPath.Text == null))
             {
+                //Open db connection
                 dbh.OpenConnectionToDB();
+                DataTable importData = GetDataFromCsv();
+                if(importData != null)
+                {
+                    //Call save import data from db handler
+                    dbh.SaveImportDataToDatabase(importData);
 
+                    MessageBox.Show("Import Completed");
+                    //Show normal cursor
+                    Cursor = Cursors.Default;
+
+                }
                 dbh.CloseConnectionToDB();
             }
             else
@@ -78,7 +142,7 @@ namespace ProjectFifaV2
                 MessageHandler.ShowMessage("No filename selected.");
             }
         }
-        
+
         private string GetFilePath()
         {
             string filePath = "";

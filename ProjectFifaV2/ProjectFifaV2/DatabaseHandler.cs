@@ -80,5 +80,25 @@ namespace ProjectFifaV2
         {
             return con;
         }
+
+        //Saves data into database INSERT Query
+        public void SaveImportDataToDatabase(DataTable importData)
+        {
+            {
+                foreach (DataRow importRow in importData.Rows)
+                {
+                    SqlCommand cmd = new SqlCommand("INSERT INTO TblGames (HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore)" +
+                                        "Values (@Home, @Away, @HomeScore, @AwayScore)", con);
+
+                    cmd.Parameters.AddWithValue("@Home", importRow["team_a"]);
+                    cmd.Parameters.AddWithValue("@Away", importRow["team_b"]);
+                    cmd.Parameters.AddWithValue("@HomeScore", importRow["score_team_a"]);
+                    cmd.Parameters.AddWithValue("@AwayScore", importRow["score_team_b"]);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+        }
     }
 }

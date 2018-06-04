@@ -50,11 +50,12 @@ namespace ProjectFifaV2
                 }
                 else
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin]) VALUES (@Username, @Password, @IsAdmin)"))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO [tblUsers] ([Username], [Password], [IsAdmin], [Score]) VALUES (@Username, @Password, @IsAdmin, @Score)"))
                     {
                         cmd.Parameters.AddWithValue("Username", txtUsername.Text);
                         cmd.Parameters.AddWithValue("Password", txtPassword.Text);
                         cmd.Parameters.AddWithValue("IsAdmin", 0);
+                        cmd.Parameters.AddWithValue("Score", 0);
                         cmd.Connection = dbh.GetCon();
                         cmd.ExecuteNonQuery();
                     }
