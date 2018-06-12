@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjectFifaV2
 {
@@ -14,6 +15,7 @@ namespace ProjectFifaV2
         private Form frmRanking;
         private DatabaseHandler dbh;
         private string userName;
+
 
         List<TextBox> txtBoxList;
 
@@ -31,6 +33,10 @@ namespace ProjectFifaV2
             ShowResults();
             ShowScoreCard();
             this.Text = "Welcome " + un;
+        }
+
+        public frmPlayer()
+        {
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -95,6 +101,9 @@ namespace ProjectFifaV2
             }
         }
 
+        public TextBox txtHomePred = new TextBox();
+        public TextBox txtAwayPred = new TextBox();
+
         private void ShowScoreCard()
         {
             dbh.TestConnection();
@@ -147,6 +156,29 @@ namespace ProjectFifaV2
         internal void GetUsername(string un)
         {
             userName = un;
+        }
+       
+        private void btnEditPrediction_Click(object sender, EventArgs e)
+        {
+            //Edit prediction code 
+            //Inserting data into database
+            dbh.OpenConnectionToDB();
+
+            DataTable importData = dbh.FillDT("SELECT * FROM TblPredictions");
+            DataTable select_user_id = dbh.FillDT("SELECT 'Id' AS user_id From TblUsers");
+            DataTable select_game_id = dbh.FillDT("SELECT 'Game_id' AS game_id FROM TblGames");
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Tblpredictions (User_id, Game_id, PredictedHomeScore, PredictedAwayScore)" +
+                                "Values (@User_id, @Game_id, @PredictedHomeScore, @PredictidAwayScore)", dbh.GetCon());
+
+            cmd.Parameters.AddWithValue("@User_id", "user_id");
+            cmd.Parameters.AddWithValue("@Game_id", "game_id");
+            cmd.Parameters.AddWithValue("@PredictedHomeScore",  txtHomePred.Text);
+            cmd.Parameters.AddWithValue("@PredictidAwayScore", txtAwayPred.Text);
+
+            cmd.ExecuteNonQuery();
+
+            dbh.CloseConnectionToDB();
         }
     }
 }

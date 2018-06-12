@@ -49,6 +49,7 @@
             this.btnEditPrediction.TabIndex = 1;
             this.btnEditPrediction.Text = "Edit Prediction";
             this.btnEditPrediction.UseVisualStyleBackColor = true;
+            this.btnEditPrediction.Click += new System.EventHandler(this.btnEditPrediction_Click);
             // 
             // btnClearPrediction
             // 

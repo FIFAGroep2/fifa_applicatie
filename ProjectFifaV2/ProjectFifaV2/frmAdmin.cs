@@ -67,7 +67,7 @@ namespace ProjectFifaV2
         }
 
         //Gets data from Csv file
-        private DataTable GetDataFromCsv()
+        public DataTable GetDataFromCsv()
         {
             DataTable importedData = new DataTable();
 
@@ -118,29 +118,57 @@ namespace ProjectFifaV2
         
         private void btnLoadData_Click(object sender, EventArgs e)
         {
-            //Show wait cursor
-            Cursor = Cursors.WaitCursor;
-            if (!(txtPath.Text == null))
+            if (txtPath.Text.Contains("Matches.csv"))
             {
-                //Open db connection
-                dbh.OpenConnectionToDB();
-                DataTable importData = GetDataFromCsv();
-                if(importData != null)
+                //Show wait cursor
+                Cursor = Cursors.WaitCursor;
+                if (!(txtPath.Text == null))
                 {
-                    //Call save import data from db handler
-                    dbh.SaveImportDataToDatabase(importData);
+                    //Open db connection
+                    dbh.OpenConnectionToDB();
+                    DataTable importData = GetDataFromCsv();
+                    if (importData != null)
+                    {
+                        //Call save import data from db handler
+                        dbh.SaveImportDataToDatabase(importData);
 
-                    MessageBox.Show("Import Completed");
-                    //Show normal cursor
-                    Cursor = Cursors.Default;
+                        MessageBox.Show("Import Games Completed");
+                        //Show normal cursor
+                        Cursor = Cursors.Default;
 
+                    }
+                    dbh.CloseConnectionToDB();
                 }
-                dbh.CloseConnectionToDB();
             }
-            else
+
+            if (txtPath.Text.Contains("Teams.csv"))
+            {
+                //Show wait cursor
+                Cursor = Cursors.WaitCursor;
+                if (!(txtPath.Text == null))
+                {
+                    //Open db connection
+                    dbh.OpenConnectionToDB();
+                    DataTable importData = GetDataFromCsv();
+                    if (importData != null)
+                    {
+                        //Call save import data from db handler
+                        dbh.SaveImportDataToDatabase(importData, "Teams");
+
+                        MessageBox.Show("Import Teams Completed");
+                        //Show normal cursor
+                        Cursor = Cursors.Default;
+
+                    }
+                    dbh.CloseConnectionToDB();
+                }
+            }
+
+            if (txtPath.Text == "")
             {
                 MessageHandler.ShowMessage("No filename selected.");
             }
+
         }
 
         private string GetFilePath()

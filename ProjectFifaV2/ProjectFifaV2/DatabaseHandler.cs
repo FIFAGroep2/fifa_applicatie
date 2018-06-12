@@ -12,6 +12,8 @@ namespace ProjectFifaV2
     {
         private SqlConnection con;
 
+        frmPlayer player = new frmPlayer();
+
         public DatabaseHandler()
         {
             //SqlCeEngine engine = new SqlCeEngine(@"Data Source=.\DB.sdf");
@@ -81,23 +83,34 @@ namespace ProjectFifaV2
             return con;
         }
 
-        //Saves data into database INSERT Query
+        //Saves data into database INSERT Query for Matches (Games)
         public void SaveImportDataToDatabase(DataTable importData)
         {
+            foreach (DataRow importRow in importData.Rows)
             {
-                foreach (DataRow importRow in importData.Rows)
-                {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO TblGames (HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore)" +
-                                        "Values (@Home, @Away, @HomeScore, @AwayScore)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO TblGames (HomeTeam, AwayTeam, HomeTeamScore, AwayTeamScore)" +
+                                    "Values (@Home, @Away, @HomeScore, @AwayScore)", con);
 
-                    cmd.Parameters.AddWithValue("@Home", importRow["team_a"]);
-                    cmd.Parameters.AddWithValue("@Away", importRow["team_b"]);
-                    cmd.Parameters.AddWithValue("@HomeScore", importRow["score_team_a"]);
-                    cmd.Parameters.AddWithValue("@AwayScore", importRow["score_team_b"]);
+                cmd.Parameters.AddWithValue("@Home", importRow["team_a"]);
+                cmd.Parameters.AddWithValue("@Away", importRow["team_b"]);
+                cmd.Parameters.AddWithValue("@HomeScore", importRow["score_team_a"]);
+                cmd.Parameters.AddWithValue("@AwayScore", importRow["score_team_b"]);
 
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.ExecuteNonQuery();
+            }
+        }
+        
+        //Insert query for teams
+        public void SaveImportDataToDatabase(DataTable importDataTeams, string Teams = "Teams")
+        {
+            foreach (DataRow importRow in importDataTeams.Rows)
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO TblTeams (TeamName)" +
+                                    "Values (@TeamName)", con);
 
+                cmd.Parameters.AddWithValue("@TeamName", importRow["name"]);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }
